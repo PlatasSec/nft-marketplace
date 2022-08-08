@@ -1,0 +1,82 @@
+specVersion: 0.0.4
+schema:
+  file: ./schema.graphql
+features:
+  - ipfsOnEthereumContracts
+  - fullTextSearch
+dataSources:
+  - kind: ethereum
+    name: MyNFTMinter
+    network: goerli
+    source:
+      address: "0xa8af3d290ea6dd4c78c93e14e001dcdd2dcb8891"
+      abi: Nft
+      startBlock: 7367394         
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Token
+        - User
+      abis:
+        - name: Nft
+          file: ./abis/Nft.json
+      eventHandlers:
+        - event: NFTMinted(indexed uint256,string,indexed address)
+          handler: handleNFTMinted
+      file: ./src/nft-logic.ts
+  - kind: ethereum
+    name: MyMarketplace
+    network: goerli
+    source:
+      address: "0xfc92a43795b5c15e9b73a9cb06362c9938d950a7"
+      abi: Marketplace
+      startBlock: 7367389           
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Item
+      abis:
+        - name: Marketplace
+          file: ./abis/Marketplace.json
+      eventHandlers:
+        - event: ItemListed(indexed uint256,indexed uint256,indexed address,address,uint256)
+          handler: handleItemListed
+        - event: ItemUpdated(indexed uint256,indexed uint256,indexed address,uint256)
+          handler: handleItemUpdated
+        - event: ItemCanceled(indexed uint256,indexed uint256,indexed address,address)
+          handler: handleItemCanceled
+        - event: ItemSold(indexed uint256,indexed uint256,address,indexed address,uint256)
+          handler: handleItemSold
+        - event: CollectionCreated(indexed address,indexed address,bool)
+          handler: handleCollectionCreated
+        - event: CollectionUpdated(indexed address,bool)
+          handler: handleCollectionUpdated
+        - event: CollectionRemoved(indexed address)
+          handler: handleCollectionRemoved
+      file: ./src/marketplace-logic.ts
+  - kind: ethereum
+    name: Escrow
+    network: goerli
+    source:
+      address: "0x1D1b6f40f004F5dD7f345513D532cc3C97706b16"
+      abi: Escrow
+      startBlock: 7367389        
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - User
+      abis:
+        - name: Escrow
+          file: ./abis/Escrow.json
+      eventHandlers:
+        - event: Deposited(indexed address,uint256)
+          handler: handleDeposit
+        - event: Withdrawn(indexed address,uint256)
+          handler: handleWithdrawal
+      file: ./src/escrow-logic.ts

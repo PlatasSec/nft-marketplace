@@ -1,0 +1,93 @@
+type Token @entity {
+  "unique token identifier and primary key"
+  id: ID!
+  "id of nft token"
+  tokenId: BigInt!
+  "collection of nft token"
+  collection: Collection!
+  "user object of owner"
+  owner: User!
+  "name of nft token"
+  name: String
+  "description of nft token"
+  description: String
+  "url of nft token"
+  image: String
+  "ipfs metadata"
+  metadata: String!
+  "timestamp of minting date"
+  createdAt: BigInt!
+}
+
+type Item @entity {
+  "unique item identifier and primary key"
+  id: ID!
+  "nft token object"
+  token: Token!
+  "user object of seller of nft token"
+  seller: User!
+  "user object of buyer of nft token"
+  buyer: User
+  "price of nft token"
+  price: BigInt!
+  "timestamp of item creation"
+  createdAt: BigInt!
+  "timestamp of last item update"
+  updatedAt: BigInt!
+  "timestamp of item deletion"
+  removedAt: BigInt!
+  "timestamp of item sale"
+  soldAt: BigInt!
+}
+
+type Collection @entity {
+  "unique collection identifier and primary key"
+  id: ID!
+  "user object of creator of collection"
+  creator: User
+  "whether the collection is allowed to use the marketplace"
+  isAllowed: Boolean! 
+  "timestamp of collection creation"
+  createdAt: BigInt!
+  "timestamp of last collection update"
+  updatedAt: BigInt!
+  "timestamp of collection deletion"
+  removedAt: BigInt!
+   "list of tokens of collection"
+  tokens: [Token!]! @derivedFrom(field: "collection")
+}
+
+type Trade @entity {
+  "unique trade identifier and primary key"
+  id: ID!
+  "type of trade"
+  type: String!
+  "source of trade"
+  from: User!
+  "destination of trade"
+  to: User!
+  "value of trade if any"
+  price: BigInt
+  "item traded"
+  item: Item!
+  "trade hash"
+  hash: String!
+  "timestamp of trade creation"
+  createdAt: BigInt!
+}
+
+type User @entity {
+  "unique user identifier and primary key"
+  id: ID!
+  "amount paid for nft tokens"
+  deposited: BigInt!
+  "pending amount to withdraw from sales"
+  pendingToWithdraw: BigInt!
+  "total amount already withdrawn from sales"
+  withdrawn: BigInt!
+  tokens: [Token!]! @derivedFrom(field: "owner")
+  items: [Item!]! @derivedFrom(field: "seller")
+  collections: [Collection!]! @derivedFrom(field: "creator")
+  trades: [Trade!]! @derivedFrom(field: "from")  
+}
+

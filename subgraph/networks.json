@@ -1,0 +1,13 @@
+{
+  "goerli": {
+    "Nft": {
+      "address": "0xa8af3d290ea6dd4c78c93e14e001dcdd2dcb8891"
+    },
+    "Marketplace": {
+      "address": "0xfc92a43795b5c15e9b73a9cb06362c9938d950a7"
+    },
+    "Escrow": {
+      "address": "0x1D1b6f40f004F5dD7f345513D532cc3C97706b16"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+# dependencies
+/website/node_modules
+/subgraph/node_modules
+/webiste/.pnp
+.pnp.js
+
+# testing
+/website/coverage
+
+# next.js
+/website/.next/
+/website/out/
+
+# production
+/website/build
+
+# misc
+.DS_Store
+/website/.DS_Store
+/subgraph/.DS_Store
+*.pem
+
+#subgraph
+/subgraph/build
+/subgraph/generated
+
+# debug
+/website/npm-debug.log*
+/website/yarn-debug.log*
+/website/yarn-error.log*
+/website/.pnpm-debug.log*
+
+# local env files
+.env
+.env*.local
+
+# vercel
+/website/.vercel
+
