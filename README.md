@@ -22,7 +22,7 @@ For the development of this project, the following technologies have been used:
 * Manage a whitelist for NFT collections to be able use the marketplace.
 * List and buy NFTs on the marketplace.
 * Pull-payments to securely transfer coins when buying NFTs and withdrawing the users' earnings.
-* Track the marketplace and users' activity.
+* Track the marketplace and users' history.
 
 ## Set up
 
