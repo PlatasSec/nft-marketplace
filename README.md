@@ -192,7 +192,7 @@ export const pinJSONToIPFS = async (url, name, description) => {
 
 To interact with the smart contracts and retrieve their data from the subgraph I've built a simple web application on Next.js. From this application, users can mint new NFTs and interact with the marketplace to list their NFTs, update and cancel their listings, and buy NFTs from other users. When clonning the repository you'll need to run `npm install` to install its dependencies. The logic has been defined in the [utils](website/utils) folder within the following files:
 
-* [auxiliary.js](website/utils/auxiliary.js): secondary functions to sanitise data, generate random images and texts for the NFTs and convert dates, among others.
-* [interact.js](website/utils/interact.js): contains the smart contract addresses and the functions to interact with the contracts.
-* [ipfs.js](website/utils/ipfs.js): to pin the NFTs metadata and obtain the new CID before minting new NFTs through Graph IPFS Node.
-* [subgraph.js](website/utils/subgraph.js): queries and functions to call the subgraph and retrieve the data soted on the smart contracts.
+* auxiliary.js: secondary functions to sanitise data, generate random images and texts for the NFTs and convert dates, among others.
+* interact.js: contains the smart contract addresses and the functions to interact with the contracts.
+* ipfs.js: to pin the NFTs metadata and obtain the new CID before minting new NFTs through Graph IPFS Node.
+* subgraph.js: queries and functions to call the subgraph and retrieve the data stored on the smart contracts.
