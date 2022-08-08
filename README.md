@@ -35,7 +35,7 @@ You can find the code in [contracts](/contracts) folder and use [Remix](https://
 ```solidity
 //NFT contract 
 
-contract MyNFT is ERC721URIStorage, Ownable {
+contract PCNFTCollection is ERC721URIStorage, Ownable {
 
   address public marketplaceContract;   
   uint256 public MAX_TOKENS;
@@ -43,7 +43,7 @@ contract MyNFT is ERC721URIStorage, Ownable {
   constructor(
         address _marketplaceContract, 
         uint256 _maxTokens
-  ) ERC721("MyNFT18", "MN18") 
+  ) ERC721("Platas Crypto Collection", "PCC") 
   {
       marketplaceContract = _marketplaceContract;
       MAX_TOKENS = _maxTokens;
