@@ -60,7 +60,12 @@ function NFTsCollected({ activeItems, refreshFunction }) {
         const inputPrice = nftElement.find('.input-sell')
         const price = inputPrice.val()
 
-        if (sellNFTLoading || !nftElement || !inputPrice || !price || price < 0 || isNaN(price)) return
+        if (!inputPrice || !price || price < 0 || isNaN(price)) {
+            toast.error("Please enter a valid price.")
+            return
+        }
+
+        if (sellNFTLoading || !nftElement) return
 
         setSellNFTLoading({ status: true, nft: nft.id })
         var sellToast = toast.loading("Listing your NFT on the marketplace")
