@@ -29,7 +29,7 @@ This project has been launched on BNB Chain Testnet. You can use another a diffe
 
 #### NFT Collection and Marketplace on Solidity
 
-You can find the code in [contracts](/contracts) folder and use [Remix](https://remix.ethereum.org) or [Hardhat](https://hardhat.org) to compile and deploy the smart contracts (0.8.7+ version). The marketplace contract must be deployed first so then its contract address can be passed as parameter to the NFT contract's constructor.
+You can find the code in [contracts](/contracts) folder and use [Remix](https://remix.ethereum.org) to compile and deploy the smart contracts (0.8.7+ version). The marketplace contract must be deployed first so then its contract address can be passed as parameter to the NFT contract's constructor.
 
 
 ```solidity
