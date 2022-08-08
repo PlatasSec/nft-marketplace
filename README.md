@@ -65,8 +65,8 @@ type Token @entity {
   id: ID!
   "id of nft token"
   tokenId: BigInt!
-  "contract address of nft token"
-  nftContract: String!
+  "collection of nft token"
+  collection: Collection!
   "user object of owner"
   owner: User!
   "name of nft token"
@@ -106,15 +106,17 @@ type Collection @entity {
   "unique collection identifier and primary key"
   id: ID!
   "user object of creator of collection"
-  creator: User!
+  creator: User
   "whether the collection is allowed to use the marketplace"
-  isAllowed: Boolean!
-  "timestamp of item creation"
+  isAllowed: Boolean! 
+  "timestamp of collection creation"
   createdAt: BigInt!
-  "timestamp of last item update"
+  "timestamp of last collection update"
   updatedAt: BigInt!
-  "timestamp of item deletion"
+  "timestamp of collection deletion"
   removedAt: BigInt!
+   "list of tokens of collection"
+  tokens: [Token!]! @derivedFrom(field: "collection")
 }
 
 type Trade @entity {
