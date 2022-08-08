@@ -50,8 +50,14 @@ function NFTsOnSale({ activeItems, refreshFunction }) {
                         <p className="size2 halfwhite">
                             Name
                         </p>
-                        <h5 className="size2 bold">{`#${nft.token.tokenId} ${nft.token.name}`}</h5>
+                        <h5 className="size1-7 bold">{`#${nft.token.tokenId} ${nft.token.name}`}</h5>
                     </div>
+                    <div>
+                        <p className="size2 halfwhite">Price</p>
+                        <h5 className="size2 bold"><Image src={_network.logo} width={16} height={16} /> {ethers.utils.formatEther(nft.price.toString())}</h5>
+                    </div>
+                </div>
+                <div className="row jc-between spacetop1">
                     <div>
                         <p className="size2 halfwhite">
                             Seller
@@ -59,12 +65,6 @@ function NFTsOnSale({ activeItems, refreshFunction }) {
                         <Link href={getAddressExplorer(nft.seller.id)}>
                             <a target={"_blank"}><h5 className="size2 bold">{shortAddress(nft.seller.id)}</h5></a>
                         </Link>
-                    </div>
-                </div>
-                <div className="row jc-between spacetop1">
-                    <div>
-                        <p className="size2 halfwhite">Price</p>
-                        <h5 className="size2 bold"><Image src={_network.logo} width={16} height={16} /> {ethers.utils.formatEther(nft.price.toString())}</h5>
                     </div>
                 </div>
 

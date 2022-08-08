@@ -93,7 +93,7 @@ function NFTsOnSale({ activeItems, refreshFunction }) {
                         <p className="size2 halfwhite">
                             Name
                         </p>
-                        <h5 className="size2 bold">{`#${nft.token.tokenId} ${nft.token.name}`}</h5>
+                        <h5 className="size1-7 bold">{`#${nft.token.tokenId} ${nft.token.name}`}</h5>
                     </div>
                     <div>
                         <p className="size2 halfwhite">Price</p>
