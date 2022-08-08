@@ -13,15 +13,15 @@ For the development of this project, the following technologies have been used:
 * [The Graph Protocol](https://thegraph.com): subgraph to retrieve and query the smart contract's information.
 * [IPFS](https://ipfs.io): protocol to pin the NFT metadata to [Graph IPFS Node](https://api.thegraph.com/ipfs).
 * [Ethers.js](https://docs.ethers.io): library to interact with the smart contracts from the front-end web app.
-* [Next.js](https://nextjs.org): front-end framework (based on React) to provide an interface for the user to interact with the smart contracts and read their information from the subgraph.
+* [Next.js](https://nextjs.org): front-end framework (based on React) to provide an interface for the user to interact with the smart contracts and obtain their information from the subgraph.
 * [Vercel](https://vercel.com): framework to deploy the front-end (Next.js) application to production.
 
 ## Features
 
 * Mint (create) NFTs with random metadata.
-* Manage a whitelist for NFT colllections to be able use the marketplace.
+* Manage a whitelist for NFT collections to be able use the marketplace.
 * List and buy NFTs on the marketplace.
-* Pull-payments to securely buy NFTs and withdraw the users' earnings.
+* Pull-payments to securely transfer coins when buying NFTs and withdrawing the users' earnings.
 * Track the marketplace and users' activity.
 
 ## Set up
