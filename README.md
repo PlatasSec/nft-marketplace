@@ -11,7 +11,7 @@ For the development of this project, the following technologies have been used:
 * [Solidity](https://solidity-es.readthedocs.io): source code to implement the NFT collection and Marketplace functions, and store the information on the blockchain.
 * [OpenZeppelin](https://docs.openzeppelin.com/contracts): library for secure smart contract development for the ERC721 standard and other libraries such as Ownable, Pausable, Counters, EnumerableSet, PullPayment and ReentrancyGuard.
 * [The Graph Protocol](https://thegraph.com): subgraph to retrieve and query the smart contract's information.
-* [IPFS](https://ipfs.io): protocol to pin the NFT metadata to [Graph Node](https://api.thegraph.com/ipfs).
+* [IPFS](https://ipfs.io): protocol to pin the NFT metadata to [Graph IPFS Node](https://api.thegraph.com/ipfs).
 * [Ethers.js](https://docs.ethers.io): library to interact with the smart contracts from the front-end web app.
 * [Next.js](https://nextjs.org): front-end framework (based on React) to provide an interface for the user to interact with the smart contracts and read their information from the subgraph.
 * [Vercel](https://vercel.com): framework to deploy the front-end (Next.js) application to production.
