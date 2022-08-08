@@ -21,6 +21,7 @@ For the development of this project, the following technologies have been used:
 * Mint (create) NFTs with random metadata.
 * Manage a whitelist for NFT colllections to be able use the marketplace.
 * List and buy NFTs on the marketplace.
+* Pull-payments to securely buy NFTs and withdraw the users' earnings.
 * Track the marketplace and users' activity.
 
 ## Set up
