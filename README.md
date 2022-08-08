@@ -9,7 +9,7 @@ You can check the live web application through this link. I hope you find it use
 For the development of this project, the following technologies have been used:
 
 * [Solidity](https://solidity-es.readthedocs.io): source code to implement the NFT collection and Marketplace functions, and store the information on the blockchain.
-* [OpenZeppelin](https://docs.openzeppelin.com/contracts): library for secure smart contract development for the ERC721 standard and other libraries such as Ownable, Pausable, Counters, EnumerableSet and ReentrancyGuard.
+* [OpenZeppelin](https://docs.openzeppelin.com/contracts): library for secure smart contract development for the ERC721 standard and other libraries such as Ownable, Pausable, Counters, EnumerableSet, PullPayment and ReentrancyGuard.
 * [The Graph Protocol](https://thegraph.com): subgraph to retrieve and query the smart contract's information.
 * [IPFS](https://ipfs.io): protocol to pin the NFT metadata to [Graph Node](https://api.thegraph.com/ipfs).
 * [Ethers.js](https://docs.ethers.io): library to interact with the smart contracts from the front-end web app.
