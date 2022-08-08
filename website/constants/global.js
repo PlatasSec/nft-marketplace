@@ -22,7 +22,7 @@ const _network = {
     },
     logo: "/assets/img/eth_logo.svg",
     homePageLogo: "/assets/img/ethereum.svg",
-    website: "https://testnet.binance.org",
+    website: "https://goerli.net",
     explorer: {
         main: "https://goerli.etherscan.io/",
         transaction: "https://goerli.etherscan.io/tx/",
