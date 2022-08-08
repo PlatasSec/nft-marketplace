@@ -1,7 +1,5 @@
 # dependencies
-/website/node_modules
-/subgraph/node_modules
-/webiste/.pnp
+node_modules
 .pnp.js
 
 # testing
@@ -12,16 +10,13 @@
 /website/out/
 
 # production
-/website/build
+build
 
 # misc
 .DS_Store
-/website/.DS_Store
-/subgraph/.DS_Store
 *.pem
 
 #subgraph
-/subgraph/build
 /subgraph/generated
 
 # debug
