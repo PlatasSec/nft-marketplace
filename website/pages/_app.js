@@ -5,7 +5,6 @@ import Layout from '../components/Layout'
 import { AppContextProvider } from '../components/Context'
 import { Toaster } from 'react-hot-toast'
 import Script from 'next/script'
-import Head from 'next/head'
 import { toastStyle, toastIconTheme } from '../constants/global'
 
 function MyApp({ Component, pageProps }) {
@@ -14,9 +13,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <AppContextProvider>
         <Layout>
-          <Head>
-            <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
-          </Head>
+          <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
 
           <Toaster position="top-center" reverseOrder={false}
             containerStyle={{ marginTop: 60 }}
