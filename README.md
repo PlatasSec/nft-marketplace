@@ -1,6 +1,6 @@
 # Building an NFT Marketplace with Solidity, The Graph Protocol, IPFS and Next.js
 
-This is a full-stack NFT Marketplace application that provides the main functions of the ERC-721 standard and a basic marketplace to trade these NFTs. It's being built for development purposes - so new features and fixes might be integrated in the future.
+This is a full-stack NFT Marketplace application that provides the main functions of the ERC-721 standard and a propietary marketplace to trade these NFTs. It's being built for development purposes - so new features and fixes might be integrated in the future.
 
 You can check the live web application through this link. I hope you find it useful. Enjoy it :)
 
