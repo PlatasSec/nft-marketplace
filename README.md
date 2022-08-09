@@ -61,6 +61,9 @@ To get started, open The Graph [dashboard](https://thegraph.com/hosted-service/d
 
 The subgraph will index 5 entities defined in __schema.graphl__. `Token` stores the information of each minted NFT. `Item` contains the data of the listings. `Trade` is used to store the marketpalce and users' activity when interacting with the marketplace (list, update, cancel and buy NFTs). `Collection` has the NFT collection information such as its name, symbol, creator and allowance, among others. Lastly, `User` registers the information of all the users with their NFTs, listings and trades.
 
+
+You can query the subgraph and use the custom queries with the Playground's section through the following link: [https://thegraph.com/hosted-service/subgraph/platascrypto/my-nft-minter](https://thegraph.com/hosted-service/subgraph/platascrypto/my-nft-minter).
+
 ```graphql
 type Token @entity {
   "unique token identifier and primary key"
