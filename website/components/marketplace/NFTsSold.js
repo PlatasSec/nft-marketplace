@@ -15,11 +15,11 @@ function NFTsSold({ activeItems }) {
                 <div className="row jc-between spacetop2">
                     <div>
                         <p className="size2 halfwhite"> Name </p>
-                        <h5 className="size2 bold">{`#${nft.token.tokenId} ${nft.token.name}`}</h5>
+                        <h5 className="size1-7 bold">{`#${nft.token.tokenId} ${nft.token.name}`}</h5>
                     </div>
                     <div>
                         <p className="size2 halfwhite">Price</p>
-                        <h5 className="size1-7 bold"><Image src={_network.logo} width={16} height={16} /> {ethers.utils.formatEther(nft.price.toString())}</h5>
+                        <h5 className="size2 bold"><Image src={_network.logo} width={16} height={16} /> {ethers.utils.formatEther(nft.price.toString())}</h5>
                     </div>
 
                 </div>
