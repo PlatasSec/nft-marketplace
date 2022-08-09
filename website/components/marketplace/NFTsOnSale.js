@@ -29,7 +29,7 @@ function NFTsOnSale({ activeItems, refreshFunction }) {
         if (success) {
             toast.success(result, { id: buyToast })
             showTransactionPopUp(hash)
-            $(`#${elementId}`).remove()
+            $(`#${elementId}`).css("display", "none")
         } else {
             toast.error(result, { id: buyToast })
         }
