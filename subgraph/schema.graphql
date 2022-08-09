@@ -43,12 +43,16 @@ type Item @entity {
 type Collection @entity {
   "unique collection identifier and primary key"
   id: ID!
+  "name of collection"
+  name: String
+  "symbol of collection"
+  symbol: String  
+  "the maximum number of tokens of collection. It can be updated by contract owner."
+  maxTokens: BigInt
   "user object of creator of collection"
   creator: User
   "whether the collection is allowed to use the marketplace"
-  isAllowed: Boolean! 
-  "the maximum number of tokens of collection. It can be updated by contract owner."
-  maxTokens: BigInt!
+  isAllowed: Boolean!   
   "timestamp of collection creation"
   createdAt: BigInt!
   "timestamp of last collection update"

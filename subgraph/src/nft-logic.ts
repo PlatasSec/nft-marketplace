@@ -1,4 +1,4 @@
-import { json, ipfs, BigInt, ByteArray } from "@graphprotocol/graph-ts"
+import { json, ipfs, BigInt, ByteArray, log } from "@graphprotocol/graph-ts"
 import { NFTMinted, Nft, MaxTokensUpdated } from "../generated/MyNFTMinter/Nft"
 import { Token, User, Collection } from "../generated/schema"
 
@@ -8,11 +8,13 @@ export function handleNFTMinted(event: NFTMinted): void {
 
   if (!collection) {
     collection = new Collection(event.address.toHexString())
+    //Access nft smart contract's state variables
+    let NFTContract = Nft.bind(event.address)
+    collection.name = NFTContract.name()
+    collection.symbol = NFTContract.symbol()
+    collection.maxTokens = NFTContract.MAX_TOKENS()
     collection.creator = new ByteArray(0).toHexString()
     collection.isAllowed = false
-    //Access MAX_TOKENS contract's state variable
-    let NFTContract = Nft.bind(event.address)
-    collection.maxTokens = NFTContract.MAX_TOKENS()
     collection.createdAt = new BigInt(0)
     collection.updatedAt = new BigInt(0)
     collection.removedAt = new BigInt(0)

@@ -59,7 +59,7 @@ You'll need to have [Node.js](https://nodejs.org) installed in your machine to u
 
 To get started, open The Graph [dashboard](https://thegraph.com/hosted-service/dashboard) (sing-in or create a new account) and click on __Add Subgraph__ to create a new subgraph. Then, you'll need to enter a Subgraph name and subtitle. Once it's created you can initialise and deploy it using Graph CLI. For more information read the docs [here](https://thegraph.com/docs/en/developing/defining-a-subgraph)).
 
-The subgraph will index 5 entities defined in __schema.graphl__. `Token` stores the information of each minted NFT. `Item` contains the data of the listings. `Trade` is used to store the marketpalce and users' activity when interacting with the marketplace (list, update, cancel and buy NFTs). `Collection` has the NFT collection address and its creator. Lastly, `User` registers the information of all the users with their NFTs, listings and trades.
+The subgraph will index 5 entities defined in __schema.graphl__. `Token` stores the information of each minted NFT. `Item` contains the data of the listings. `Trade` is used to store the marketpalce and users' activity when interacting with the marketplace (list, update, cancel and buy NFTs). `Collection` has the NFT collection information such as its name, symbol, creator and allowance, among others. Lastly, `User` registers the information of all the users with their NFTs, listings and trades.
 
 ```graphql
 type Token @entity {
