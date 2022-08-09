@@ -9,6 +9,9 @@ import Script from 'next/script'
 function Layout({ children }) {
     return (
         <>
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" />
+            <Script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js" crossorigin="anonymous" />
+            <Script src="assets/js/cookie-consent.js" />
             <Nav />
             <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
             <Toaster position="top-center" reverseOrder={false}

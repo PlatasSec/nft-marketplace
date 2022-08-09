@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
 import { getAddressExplorer, shortAddress, showTransactionPopUp } from '../../utils/auxiliary'
-import { buyNFT, removeItemFromMarketplace } from '../../utils/interact'
+import { buyNFT } from '../../utils/interact'
 import { ethers } from 'ethers'
 import $ from 'jquery'
-import useAppContext, { AppContext } from '../Context'
+import useAppContext from '../Context'
 import { ThreeDots } from 'react-loader-spinner'
 import toast from 'react-hot-toast'
 import { _network } from '../../constants/global'
