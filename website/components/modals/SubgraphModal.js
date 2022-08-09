@@ -96,7 +96,7 @@ function SubgraphModal() {
                                         <p className='size1-3'>Last Chain Block: {subgraphHealth.chains[0].chainHeadBlock.number}</p>
                                     </div>
                                     <div>
-                                        <p className='size1-3'>Last Synced Block: {subgraphHealth.chains[0].latestBlock.number}</p>
+                                        <p className='size1-3'>Last Subgraph Block: {subgraphHealth.chains[0].latestBlock.number}</p>
                                     </div>
                                 </div>
 
