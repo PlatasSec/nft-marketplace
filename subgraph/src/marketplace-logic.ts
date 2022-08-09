@@ -1,5 +1,6 @@
-import { ethereum, JSONValue, json, ipfs, log, store, BigInt, dataSource, ByteArray } from "@graphprotocol/graph-ts"
+import { BigInt, dataSource, ByteArray } from "@graphprotocol/graph-ts"
 import { CollectionCreated, CollectionRemoved, CollectionUpdated, ItemCanceled, ItemListed, ItemSold, ItemUpdated } from "../generated/MyMarketplace/Marketplace"
+import { Nft } from "../generated/MyNFTMinter/Nft"
 import { Token, Item, User, Trade, Collection } from "../generated/schema"
 
 // ITEMS
@@ -180,6 +181,9 @@ export function handleCollectionCreated(event: CollectionCreated): void {
         collection = new Collection(event.params.nftContract.toHexString())
         collection.creator = creator.id
         collection.isAllowed = event.params.isAllowed
+        //Access MAX_TOKENS from NFT smart contract's state variable
+        let NFTContract = Nft.bind(event.params.nftContract)
+        collection.maxTokens = NFTContract.MAX_TOKENS()
         collection.createdAt = event.block.timestamp
         collection.updatedAt = new BigInt(0)
         collection.removedAt = new BigInt(0)

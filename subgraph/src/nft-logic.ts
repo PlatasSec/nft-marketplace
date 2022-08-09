@@ -1,15 +1,18 @@
-import { ethereum, JSONValue, json, ipfs, log, dataSource, BigInt, ByteArray } from "@graphprotocol/graph-ts"
-import { NFTMinted } from "../generated/MyNFTMinter/Nft"
+import { json, ipfs, BigInt, ByteArray } from "@graphprotocol/graph-ts"
+import { NFTMinted, Nft, MaxTokensUpdated } from "../generated/MyNFTMinter/Nft"
 import { Token, User, Collection } from "../generated/schema"
 
 export function handleNFTMinted(event: NFTMinted): void {
 
-  let collection = Collection.load(dataSource.address().toHexString())
+  let collection = Collection.load(event.address.toHexString())
 
   if (!collection) {
-    collection = new Collection(dataSource.address().toHexString())
+    collection = new Collection(event.address.toHexString())
     collection.creator = new ByteArray(0).toHexString()
     collection.isAllowed = false
+    //Access MAX_TOKENS contract's state variable
+    let NFTContract = Nft.bind(event.address)
+    collection.maxTokens = NFTContract.MAX_TOKENS()
     collection.createdAt = new BigInt(0)
     collection.updatedAt = new BigInt(0)
     collection.removedAt = new BigInt(0)
@@ -18,8 +21,7 @@ export function handleNFTMinted(event: NFTMinted): void {
   let token = Token.load(event.params.id.toString())
   if (!token) {
     token = new Token(event.params.id.toString())
-    token.tokenId = event.params.id;
-    // token.nftContract = dataSource.address().toHexString()
+    token.tokenId = event.params.id
     token.collection = collection.id
     token.owner = event.params.owner.toHexString()
     token.createdAt = event.block.timestamp;
@@ -54,7 +56,19 @@ export function handleNFTMinted(event: NFTMinted): void {
     user.pendingToWithdraw = new BigInt(0)
     user.withdrawn = new BigInt(0)
   }
+
   collection.save()
   token.save()
   user.save()
+}
+
+export function handleMaxTokensUpdated(event: MaxTokensUpdated): void {
+
+  let collection = Collection.load(event.address.toHexString())
+
+  if (!collection || collection.maxTokens == event.params.newAmount) return
+
+  collection.maxTokens = event.params.newAmount
+
+  collection.save()
 }

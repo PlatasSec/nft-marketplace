@@ -47,6 +47,8 @@ type Collection @entity {
   creator: User
   "whether the collection is allowed to use the marketplace"
   isAllowed: Boolean! 
+  "the maximum number of tokens of collection. It can be updated by contract owner."
+  maxTokens: BigInt!
   "timestamp of collection creation"
   createdAt: BigInt!
   "timestamp of last collection update"

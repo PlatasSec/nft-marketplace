@@ -1,4 +1,4 @@
-import { ethereum, JSONValue, json, ipfs, log, store, BigInt, dataSource, ByteArray } from "@graphprotocol/graph-ts"
+import { BigInt } from "@graphprotocol/graph-ts"
 import { Deposited, Withdrawn } from "../generated/Escrow/Escrow"
 import { User } from "../generated/schema"
 
