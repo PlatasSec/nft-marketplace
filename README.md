@@ -26,7 +26,8 @@ For the development of this project, the following technologies have been used:
 
 ## Set up
 
-This project has been launched on BNB Chain Testnet. You can use another a different network by updating `constants/global.js` on the web app and the `subgraph.yaml` and `networks.json` on the subgraph.
+This project has been launched on Goerli - Ethereum testnet. You can use another a different network by updating `constants/global.js` on the web app and the `subgraph.yaml` and `networks.json` on the subgraph.
+If you want to test the app you'll need to have some GoerliETH to cover the transaction fees. In order to get some free GoerliETH you can use any faucets available online like [this one](https://goerlifaucet.com).
 
 #### NFT Collection and Marketplace on Solidity
 
