@@ -6,17 +6,22 @@ import Pagination from '../pagination/Pagination'
 import { shortDescription } from '../../utils/auxiliary'
 import { Puff } from 'react-loader-spinner'
 import { getOwnerTokenExplorer } from '../../utils/auxiliary'
+import { _network } from '../../constants/global'
 
-function Collections({ allNFTs }) {
+function Collections({ collection }) {
 
-    const [currentNFTs, setCurrentNFTs] = useState(allNFTs)
+    const [currentNFTs, setCurrentNFTs] = useState(collection.tokens)
 
-    return (
+    return collection && collection.tokens ? (
         <section className="collections spacer10" id="collections">
             <div className="container">
-                <h1 className="bold size4 ta-center">Collection</h1>
+                <h1 className="bold size4 ta-center">Collection -
+                    <Link href={_network.explorer.token + collection.id}>
+                        <a title={`${collection.name} - $${collection.symbol}`} target={"_blank"}>${collection.symbol}</a>
+                    </Link>
+                </h1>
                 <p className="spacebottom3 halfwhite size2 ta-center">
-                    Check all the random NFTs that have already<br />been minted.
+                    Check the {collection.tokens.length} random NFTs minted out of {collection.maxTokens} total tokens.
                 </p>
                 {currentNFTs ?
                     <div className="row box-card jc-evenly-md">
@@ -47,11 +52,19 @@ function Collections({ allNFTs }) {
                     </div>
                 }
 
-                <Pagination allItemsArray={allNFTs} filteredArray={currentNFTs} perPage={4} updateArrayState={setCurrentNFTs} />
+                <Pagination allItemsArray={collection.tokens} filteredArray={currentNFTs} perPage={4} updateArrayState={setCurrentNFTs} />
 
             </div>
         </section>
-    )
+    ) :
+        <section className="collections spacer10" id="collections">
+            <div className="container">
+                <h1 className="bold size4 ta-center">Collection</h1>
+                <p className="spacebottom3 halfwhite size2 ta-center">
+                    No minted NFTs yet.
+                </p>
+            </div>
+        </section>
 }
 
 export default Collections

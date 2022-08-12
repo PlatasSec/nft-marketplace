@@ -1,7 +1,7 @@
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client'
 import axios from 'axios'
 
-import { subgraphId } from '../constants/global'
+import { subgraphId, nft_contract_address } from '../constants/global'
 
 const SUBGRAPH_API_URL = `https://api.thegraph.com/subgraphs/id/${subgraphId}`
 
@@ -20,6 +20,32 @@ const allNFTs = `
         image
         metadata   
         createdAt     
+      }
+  }
+`
+// Collection
+const collectionInfo = `
+  query($nftContract: String) {
+    collections(where: {id: $nftContract}) {
+        id
+        name
+        symbol
+        maxTokens
+        creator {
+          id
+        }
+        isAllowed
+        tokens {
+          id
+          tokenId
+          name
+          description
+          image
+          owner {id}
+        }
+        createdAt
+        updatedAt
+        removedAt
       }
   }
 `
@@ -282,6 +308,31 @@ export async function getAllNFTsFromSubgraph() {
         return {
             success: true,
             result: result.data.tokens
+        };
+    } catch (error) {
+        console.log(error);
+        return {
+            success: false,
+            result: error
+        };
+    }
+
+}
+
+// Collection
+export async function getCollectionInfoFromSubgraph() {
+    const client = new ApolloClient({
+        uri: SUBGRAPH_API_URL,
+        cache: new InMemoryCache()
+    })
+
+    try {
+        const nftContract = nft_contract_address.toLowerCase()
+        let result = await client.query({ query: gql(collectionInfo), variables: { nftContract } });
+        console.log(result.data.collections)
+        return {
+            success: true,
+            result: result.data.collections
         };
     } catch (error) {
         console.log(error);

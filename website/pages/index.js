@@ -5,16 +5,16 @@ import About from '../components/about/About'
 import Collections from '../components/collections/Collections'
 import Intro from '../components/intro/Intro'
 import Mint from '../components/mint/Mint'
-import { getAllNFTsFromSubgraph, getMarketplaceItemsOnSaleFromSubgraph, getMarketplaceItemsSoldFromSubgraph } from '../utils/subgraph'
+import { getCollectionInfoFromSubgraph, getMarketplaceItemsOnSaleFromSubgraph, getMarketplaceItemsSoldFromSubgraph } from '../utils/subgraph'
 import { _network } from '../constants/global'
 
-export default function Home({ allNFTs, stats }) {
+export default function Home(props) {
   return (
     <>
       <Head>
         <title>PC Marketplace - Home</title>
       </Head>
-      <Intro stats={stats} />
+      <Intro stats={props.stats} />
       <section className="spacer5 spacer0-xs">
         <div className="container row jc-between jc-around-md">
           <div className='col2 col4-md'>
@@ -46,18 +46,16 @@ export default function Home({ allNFTs, stats }) {
       </section>
       <About />
       <Mint />
-      <Collections allNFTs={allNFTs} />
+      <Collections collection={props.collection} />
     </>
   )
 }
 
 export async function getServerSideProps(context) {
 
-  const getAllNFTsRequest = await getAllNFTsFromSubgraph();
-  const getAllNFTsResult = getAllNFTsRequest.success ?
-    getAllNFTsRequest.result : null
-  const totalMintedNFTsResult = getAllNFTsRequest.success ?
-    getAllNFTsRequest.result.length : null
+  const getCollectionRequest = await getCollectionInfoFromSubgraph();
+  const getCollectionResult = getCollectionRequest.success ?
+    getCollectionRequest.result[0] : null
 
   const getAllNFTsOnSale = await getMarketplaceItemsOnSaleFromSubgraph()
   const getAllNFTsOnSaleResult = getAllNFTsOnSale.success ?
@@ -69,9 +67,9 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      allNFTs: getAllNFTsResult,
+      collection: getCollectionResult,
       stats: {
-        totalMintedNFTs: totalMintedNFTsResult,
+        totalMintedNFTs: getCollectionResult.tokens.length,
         totalNFTsOnSale: getAllNFTsOnSaleResult,
         totalNFTsSold: getAllNFTsSoldResult
       }

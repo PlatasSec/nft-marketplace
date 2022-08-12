@@ -86,8 +86,8 @@ function Mint() {
                             Every time you visit the home page a new random NFT metadata is generated. <Link href={"https://picsum.photos"}><a className='text-link' target={"_blank"} style={{ textDecoration: "underline" }}> Picsum Photos</a></Link> and
                             <Link href={"https://www.npmjs.com/package/lorem-ipsum"}><a className='text-link' target={"_blank"} style={{ textDecoration: "underline" }}> Lorem Picsum</a></Link> library are used to get a random picture, name and description
                             for the NFT. You can generate a new one by clicking the button below. Once you click on Mint NFT button, the app pins (stores) the NFT's metadata to
-                            <Link href={"https://www.pinata.cloud/"}><a className='text-link' target={"_blank"} style={{ textDecoration: "underline" }}> Pinata IPFS</a></Link>, receives the IPFS CID, and executes the mint function on the smart contract by passing the said CID
-                            to store it on the blockchain. You'll automatically receive the your random NFT on your wallet and it'll be ready to be traded on the Marketplace.
+                            <Link href={"https://www.pinata.cloud/"}><a className='text-link' target={"_blank"} style={{ textDecoration: "underline" }}> IPFS</a></Link>, and executes the mint function on the smart contract by passing the generated IPFS CID as the token URI
+                            to store it on the blockchain. When the transaction is confirmed, you'll automatically receive the your NFT on your wallet and it'll be ready to be traded on the Marketplace.
                         </p>
                         <div className="row col8 col9-md jc-between spacebottom4 jc-evenly-s col12-s">
                             {!generateNewNFTLoading ?
