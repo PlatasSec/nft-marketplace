@@ -16,7 +16,7 @@ export default function Home(props) {
       </Head>
       <Intro stats={props.stats} />
       <section className="spacer5 spacer0-xs">
-        <div className="container row jc-between jc-around-md">
+        <div className="container row jc-between jc-center-md">
           <div className='col2 col4-md'>
             <Link href={_network.website}>
               <a target={"_blank"} title={"Ethereum.org Website"}><Image src={_network.homePageLogo} width={700} height={400} /></a>

@@ -20,7 +20,7 @@ function EarningsTable({ earnings, refreshFunction }) {
 
         setWithdrawLoading(true)
         var withdrawToast = toast.loading("Withdrawing your earnings")
-
+        
         const { success, result, hash } = await withdraw()
 
         if (success) {
@@ -28,7 +28,7 @@ function EarningsTable({ earnings, refreshFunction }) {
             showTransactionPopUp(hash)
             // Update user earnings on state variable
             var prevUserWallet = structuredClone(userWallet);
-            prevUserWallet.earnings.withdrawn = parseInt(prevUserWallet.earnings.withdrawn) + parseInt(prevUserWallet.earnings.pendingToWithdraw)
+            prevUserWallet.earnings.withdrawn = parseFloat(ethers.utils.formatEther(userWallet.earnings.withdrawn)) + parseFloat(ethers.utils.formatEther(userWallet.earnings.pendingToWithdraw))
             prevUserWallet.earnings.pendingToWithdraw = 0
             setUserWallet(prevUserWallet)
         } else {
