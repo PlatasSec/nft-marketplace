@@ -45,7 +45,7 @@ export default function Home(props) {
         </div>
       </section>
       <About />
-      <Mint />
+      <Mint ollection={props.collection} />
       <Collections collection={props.collection} />
     </>
   )

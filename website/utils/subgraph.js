@@ -38,6 +38,7 @@ const collectionInfo = `
         tokens {
           id
           tokenId
+          collection {id}
           name
           description
           image

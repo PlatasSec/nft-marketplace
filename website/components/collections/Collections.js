@@ -32,7 +32,7 @@ function Collections({ collection }) {
                                 <div className="row jc-between spacetop2">
                                     <div>
                                         <h5 className="size2 bold">#{nft.tokenId} {nft.name ? nft.name : "-"}</h5>
-                                        <Link href={getOwnerTokenExplorer(nft.nftContract, nft.owner.id)}>
+                                        <Link href={getOwnerTokenExplorer(nft.collection.id, nft.owner.id)}>
                                             <a target={"_blank"} className="size2 halfwhite">
                                                 Owner: {nft.owner.id && shortAddress(nft.owner.id)}
                                             </a>

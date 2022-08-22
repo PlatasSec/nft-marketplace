@@ -6,9 +6,8 @@ import { generateNewIMG, getNewParagraph, generateNewTitle, shortDescription, sh
 import toast from 'react-hot-toast';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getAllNFTsFromSubgraph } from '../../utils/subgraph';
 
-function Mint() {
+function Mint({ collection }) {
 
     const [url, setURL] = useState("");
     const [imageID, setImageID] = useState("");
@@ -72,7 +71,7 @@ function Mint() {
     };
 
 
-    return (
+    return collection && collection.tokens && collection.tokens.length < collection.maxTokens ? (
         <section id="mint" className="spacer10">
             <div className="container">
                 <h1 className="bold size4 ta-center">Mint you NFT</h1>
@@ -154,7 +153,39 @@ function Mint() {
                 </div>
             </div>
         </section>
-    )
+    ) :
+        <section id="mint" className="spacer10">
+            <div className="container">
+                <h1 className="bold size4 ta-center">Mint you NFT</h1>
+                <p className="spacebottom3 halfwhite size2 ta-center">
+                    Mint the current NFT or generate a new one<br />for free.
+                </p>
+                <div className="row ai-center jc-between flexcol-s">
+                    <div className="col6 col12-s ta-center-s">
+                        <h3 className="size3 bold">How It Works</h3>
+                        <p className="size2 spacetop1 spacebottom3 halfwhite">
+                            Every time you visit the home page a new random NFT metadata is generated. <Link href={"https://picsum.photos"}><a className='text-link' target={"_blank"} style={{ textDecoration: "underline" }}> Picsum Photos</a></Link> and
+                            <Link href={"https://www.npmjs.com/package/lorem-ipsum"}><a className='text-link' target={"_blank"} style={{ textDecoration: "underline" }}> Lorem Picsum</a></Link> library are used to get a random picture, name and description
+                            for the NFT. You can generate a new one by clicking the button below (not available now due to maximum amount of minted tokens was reached). When available, once you click on Mint NFT button, the app pins (stores) the NFT's metadata to
+                            <Link href={"https://www.pinata.cloud/"}><a className='text-link' target={"_blank"} style={{ textDecoration: "underline" }}> IPFS</a></Link>, and executes the mint function on the smart contract by passing the generated IPFS CID as the token URI
+                            to store it on the blockchain. When the transaction is confirmed, you'll automatically receive the your NFT on your wallet and it'll be ready to be traded on the Marketplace.
+                        </p>
+                    </div>
+                    <div className="col4 card collect bg-white10 col5-md col8-s">
+                        <Image id={imageID} src={`${url.length > 0 ? url : "/assets/img/about.png"}`} width={428} height={524} />
+                        <div className="row jc-between spacetop1">
+                            <div>
+                                <p className="size2 halfwhite">The total amount of max tokens have already been sold out. The admin
+                                    will increase this number very soon - stay tuned!</p>
+                            </div>
+                        </div>
+                        <div className="bid-white size2 white ta-center" >
+                            <p style={{ paddingRight: 10 }}>Sold Out!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 }
 
 export default Mint

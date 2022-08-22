@@ -5,7 +5,7 @@ const marketplace_contract_address = "0xFC92a43795B5C15E9B73a9CB06362c9938D950A7
 const marketplace_contract_ABI = require("../contracts/marketplace-abi.json")
 
 // Subgraph
-const subgraphId = "QmemjrkhFtKxwwAKAvCjxQH7TpTyFs562bt8YJpdhaemfR"
+const subgraphId = "QmYjPCrz3CkcnKxJqKPLDAD8BFB9fv2WLZFhzfpGkmSr4q"
 
 // Network
 const _network = {

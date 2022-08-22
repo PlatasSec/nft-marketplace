@@ -27,6 +27,8 @@ dataSources:
           handler: handleNFTMinted
         - event: MaxTokensUpdated(indexed uint256)
           handler: handleMaxTokensUpdated
+        - event: NFTTokenURIUpdated(indexed uint256,string)
+          handler: handleTokenURIUpdated
       file: ./src/nft-logic.ts
   - kind: ethereum
     name: MyMarketplace
