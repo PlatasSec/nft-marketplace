@@ -35,7 +35,7 @@ const collectionInfo = `
           id
         }
         isAllowed
-        tokens {
+        tokens(orderBy: createdAt, orderDirection: asc) {
           id
           tokenId
           collection {id}

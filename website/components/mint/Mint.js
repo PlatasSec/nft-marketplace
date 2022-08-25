@@ -20,7 +20,10 @@ function Mint({ collection }) {
     useEffect(() => {
         (async () => {
             if (firstImgRequested) return
-            await generateNewRandomNFT()
+            if (!collection.tokens.length >= collection.maxTokens) {
+                await generateNewRandomNFT()
+                await mintNFT()
+            }
             setFirstImgRequested(true)
         })()
     }, [])
@@ -85,7 +88,7 @@ function Mint({ collection }) {
                             Every time you visit the home page a new random NFT metadata is generated. <Link href={"https://picsum.photos"}><a className='text-link' target={"_blank"} style={{ textDecoration: "underline" }}> Picsum Photos</a></Link> and
                             <Link href={"https://www.npmjs.com/package/lorem-ipsum"}><a className='text-link' target={"_blank"} style={{ textDecoration: "underline" }}> Lorem Picsum</a></Link> library are used to get a random picture, name and description
                             for the NFT. You can generate a new one by clicking the button below. Once you click on Mint NFT button, the app pins (stores) the NFT's metadata to
-                            <Link href={"https://www.pinata.cloud/"}><a className='text-link' target={"_blank"} style={{ textDecoration: "underline" }}> IPFS</a></Link>, and executes the mint function on the smart contract by passing the generated IPFS CID as the token URI
+                            <Link href={"https://ipfs.io"}><a className='text-link' target={"_blank"} style={{ textDecoration: "underline" }}> IPFS</a></Link>, and executes the mint function on the smart contract by passing the generated IPFS CID as the token URI
                             to store it on the blockchain. When the transaction is confirmed, you'll automatically receive the your NFT on your wallet and it'll be ready to be traded on the Marketplace.
                         </p>
                         <div className="row col8 col9-md jc-between spacebottom4 jc-evenly-s col12-s">
@@ -167,15 +170,15 @@ function Mint({ collection }) {
                             Every time you visit the home page a new random NFT metadata is generated. <Link href={"https://picsum.photos"}><a className='text-link' target={"_blank"} style={{ textDecoration: "underline" }}> Picsum Photos</a></Link> and
                             <Link href={"https://www.npmjs.com/package/lorem-ipsum"}><a className='text-link' target={"_blank"} style={{ textDecoration: "underline" }}> Lorem Picsum</a></Link> library are used to get a random picture, name and description
                             for the NFT. You can generate a new one by clicking the button below (not available now due to maximum amount of minted tokens was reached). When available, once you click on Mint NFT button, the app pins (stores) the NFT's metadata to
-                            <Link href={"https://www.pinata.cloud/"}><a className='text-link' target={"_blank"} style={{ textDecoration: "underline" }}> IPFS</a></Link>, and executes the mint function on the smart contract by passing the generated IPFS CID as the token URI
+                            <Link href={"https://ipfs.io"}><a className='text-link' target={"_blank"} style={{ textDecoration: "underline" }}> IPFS</a></Link>, and executes the mint function on the smart contract by passing the generated IPFS CID as the token URI
                             to store it on the blockchain. When the transaction is confirmed, you'll automatically receive the your NFT on your wallet and it'll be ready to be traded on the Marketplace.
                         </p>
                     </div>
                     <div className="col4 card collect bg-white10 col5-md col8-s">
-                        <Image id={imageID} src={`${url.length > 0 ? url : "/assets/img/about.png"}`} width={428} height={524} />
+                        <Image id={imageID} src={"/assets/img/about.png"} width={428} height={524} />
                         <div className="row jc-between spacetop1">
                             <div>
-                                <p className="size2 halfwhite">The total amount of max tokens have already been sold out. The admin
+                                <p className="size2 halfwhite">The total amount of max tokens have already been minted. The admin
                                     will increase this number very soon - stay tuned!</p>
                             </div>
                         </div>
