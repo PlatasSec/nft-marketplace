@@ -19,8 +19,8 @@ function Mint({ collection }) {
 
     useEffect(() => {
         (async () => {
-            if (firstImgRequested) return
-            if (!collection.tokens.length >= collection.maxTokens) {
+            if (firstImgRequested || !collection || !collection.tokens || !collection.maxTokens) return
+            if (!(collection.tokens.length >= collection.maxTokens)) {
                 await generateNewRandomNFT()
                 await mintNFT()
             }

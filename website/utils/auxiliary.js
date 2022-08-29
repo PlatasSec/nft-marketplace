@@ -26,13 +26,23 @@ export const generateNewIMG = async () => {
     const url = `https://picsum.photos/428/524`
     return await fetch(url)
         .then(function (res) {
-            return {
-                success: true,
-                data: {
-                    id: res.headers.get('Picsum-ID'),
-                    src: res.url
+            if (res.ok) {
+                return {
+                    success: true,
+                    data: {
+                        id: res.headers.get('Picsum-ID'),
+                        src: res.url
+                    }
+                }
+            } else {
+                return {
+                    success: false,
+                    data: {
+                        src: "/assets/img/about.png"
+                    }
                 }
             }
+
         })
 
 }
