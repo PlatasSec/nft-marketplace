@@ -330,7 +330,6 @@ export async function getCollectionInfoFromSubgraph() {
     try {
         const nftContract = nft_contract_address.toLowerCase()
         let result = await client.query({ query: gql(collectionInfo), variables: { nftContract } });
-        console.log(result.data.collections)
         return {
             success: true,
             result: result.data.collections

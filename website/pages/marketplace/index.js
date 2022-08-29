@@ -130,7 +130,7 @@ export default function Marketplace({ itemsOnSell, allTrades }) {
                             }
                         </div>
                         <ActivityTable data={currentTrades} />
-                        <Pagination allItemsArray={trades} filteredArray={currentTrades} perPage={4} updateArrayState={setCurrentTrades} />
+                        <Pagination allItemsArray={trades} filteredArray={currentTrades} perPage={5} updateArrayState={setCurrentTrades} />
                     </div>
 
                 </div>

@@ -212,7 +212,7 @@ export default function Profile() {
                             }
                         </div>
                         <ActivityTable data={currentTrades} />
-                        <Pagination allItemsArray={trades} filteredArray={currentTrades} perPage={4} updateArrayState={setCurrentTrades} />
+                        <Pagination allItemsArray={trades} filteredArray={currentTrades} perPage={5} updateArrayState={setCurrentTrades} />
                     </div>
                 </div>
             </section>
